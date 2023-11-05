@@ -4,6 +4,8 @@ function setup() {
 	new Canvas(500, 500);
 	ball = new Sprite();
 	ball.diameter = 20;
+	ball.friction = 0;
+	ball.strokeWeight = 0;
 
 	ball.vel.x = 5;
 
@@ -38,10 +40,10 @@ function setup() {
 
 	barrier1.collider = 'static';
 	barrier2.collider = 'static';
+	background(0);
 }
-w
 function draw() {
-	background('gray');
+	allSprites.draw();
 	if (kb.pressing('w')) {
 		player1.move(30, 'up', 3);
 	} else if (kb.pressing('s')) {
@@ -69,4 +71,5 @@ function draw() {
 		ball.y=250;
 		ball.vel.y = 0;
 	}
+	background(0, 0, 0, 30);
 }
