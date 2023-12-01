@@ -1,7 +1,10 @@
 let ball;
-
+let sc1=0;
+let sc2=0;
+let sc='';
+let pr=0;
 function setup() {
-	new Canvas(500, 500);
+	new Canvas(500, 500);  
 	ball = new Sprite();
 	ball.diameter = 20;
 	ball.friction = 0;
@@ -42,6 +45,7 @@ function setup() {
 	barrier2.collider = 'static';
 	background(0);
 }
+
 function draw() {
 	allSprites.draw();
 	if (kb.pressing('w')) {
@@ -60,6 +64,16 @@ function draw() {
 	if (ball.collided(player2)) {
 		ball.vel.x = -5;
 	}
+	if(pr==0){
+	if(ball.x<0){
+		sc2++;
+		pr=1;
+	}
+	if(ball.x>500){
+		sc1++;
+		pr=1;
+	}
+	}
 	if (kb.pressing('space')) {
 		if(ball.x<250){
 			ball.vel.x = 5;
@@ -70,6 +84,15 @@ function draw() {
 		ball.x=250;
 		ball.y=250;
 		ball.vel.y = 0;
+		pr=0;
+	}
+	if (kb.pressing('P')) {
+	sc1=0;
+	sc2=0;
 	}
 	background(0, 0, 0, 30);
+	textSize(22);
+	fill('yellow');
+	sc=sc1+':'+sc2
+	text(sc, 6, 20);
 }
