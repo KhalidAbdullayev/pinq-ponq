@@ -45,14 +45,14 @@ function setup() {
 function draw() {
 	allSprites.draw();
 	if (kb.pressing('w')) {
-		player1.move(30, 'up', 3);
+		player1.move(30, 'up', 4);
 	} else if (kb.pressing('s')) {
-		player1.move(30, 'down', 3);
+		player1.move(30, 'down', 4);
 	}
     if (kb.pressing('arrowUp')) {
-		player2.move(30, 'up', 3);
+		player2.move(30, 'up', 4);
 	} else if (kb.pressing('arrowDown')) {
-		player2.move(30, 'down', 3);
+		player2.move(30, 'down', 4);
 	}
 	if (ball.collided(player1)) {
 		ball.vel.x = 5;
